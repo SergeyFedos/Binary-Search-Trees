@@ -1,10 +1,28 @@
 import { Tree } from "./BST.js";
 
 
-const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-
-
+function getRandomArray(size) {
+  const arr = [];
+  for (let i = 0; i < size; i++) {
+    arr.push(Math.floor(Math.random() * 100));
+  }
+  return arr;
+}
+const arr = getRandomArray(100);
 const tree = new Tree(arr);
-console.log(tree.insert(255))
 
-tree.print();
+console.log(tree.isBalanced())
+tree.levelOrder(console.log)
+tree.preOrder(tree.root, console.log)
+tree.inOrder(tree.root, console.log)
+tree.postOrder(tree.root, console.log);
+tree.insert(105);
+tree.insert(109);
+tree.insert(212);
+console.log(tree.isBalanced())
+tree.rebalance();
+console.log(tree.isBalanced())
+tree.levelOrder(console.log)
+tree.preOrder(tree.root, console.log)
+tree.inOrder(tree.root, console.log)
+tree.postOrder(tree.root, console.log);
